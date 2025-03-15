@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoLab Club</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       body{background: linear-gradient(135deg, #f7faff, #c9dafd);}
+        .container img {transition: all ease-in-out 0.5s; border: 20px solid rgba(20, 26, 109, 0.8); width: 100%; height: 100%; object-fit: cover; border-radius: 10px; border: 2px solid rgb(41, 0, 206); transition: all ease-in-out 0.5s;}
+        .container img:hover { transform: scale(1.2); }
+        h1 {text-align: center;   color: #0D6EFD;  font-size: 3rem;   font-family: 'Georgia', serif;   text-shadow: #0f0801;  margin-top: 10px;   animation: pulse 2s infinite;   font-weight: bold;}
+
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1); /* Taille normale */
+            }
+            50% {
+                transform: scale(1.1); /* Légèrement agrandi */
+            }
+            100% {
+                transform: scale(1); /* Retour à la taille normale */
+            }
+        }
+        .mt-5 {text-align: left; padding: 20px; /* Espace intérieur */border-left: 5px solid #e2e7fb; /* Bordure à gauche en bleu */background-color: #fffcf0; /* Fond légèrement bleu */margin: 20px 0; /* Marge extérieure */font-family: 'Georgia', serif; /* Police moderne */font-size: 1.1rem; /* Taille de la police */line-height: 1.6; /* Espacement des lignes */ max-width: 800px; /* Largeur maximale */ margin-left: auto; /* Aligner à droite */ margin-right: 0; /* Pas de marge à droite */}
+        .dropdown-menu {display: none; position: absolute; background-color: white;border: 1px solid #ddd; border-radius: 5px; z-index: 1000;}
+        .dropdown:hover .dropdown-menu { display: block;  }
+        .mt-5:hover {border-left: 5px solid #140b51; background-color: #fffcf0; }
+        .content-container { display: flex; align-items: center; gap: 20px; max-width: 1000px; margin: 20px auto; }
+        .content-container img { width: 300px;  height: auto;  border-radius: 10px;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .text-section { text-align: left;  padding: 20px;  border-left: 5px solid #dfdfe0;  background-color: #ffffff;  font-family: 'Arial', sans-serif;  font-size: 1.1rem; line-height: 1.6;  flex: 1;margin-left: auto;}
+        .main-container { display: flex;  flex-direction: row;  gap: 20px;   max-width: 1000px; margin: 0 auto;   align-items: center;}
+        .section { padding: 20px; background-color: #fefefe;  border-left: 5px solid #2e04b9; font-family: 'Arial', sans-serif; font-size: 1.1rem; line-height: 1.6;   text-align: left; max-width: 500px;}
+        .section img {width: 300px;  height: auto;  border-radius: 10px;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);}
+        .section:hover {  border-left: 5px solid #150ba0;  background-color: #ddecfb; }
+        .executive-team { display: flex; flex-wrap: wrap;  gap: 20px; justify-content: center; flex-direction: column;margin-bottom:  100px;}
+        .member-group { display: flex; flex-wrap: wrap; justify-content: center; }
+        .member { background-color: #ffffff; border-radius: 10px;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  padding: 20px; text-align: center; width: 250px; }
+        .member img {width: 150px;  height: 150px;  border-radius: 50%;object-fit: cover; margin-bottom: 15px; }
+        .member h3 {font-size: 1.5rem;  margin: 10px 0;  color: #1c0c6de3; }
+        .member p { font-size: 1rem;  color: #000000; margin: 0;}
+         #social-media {background: linear-gradient(135deg, #f7faff, #c9dafd);}
+        #social-media p{font-size: 36px; font-weight: 600; margin-bottom: 30px;}
+        .social-icons img {width: 60px; transition: 0.5s;}
+        .social-icons a:hover img {transform: translateY(-10px);}
+        .logo{width: 200px; margin-bottom: 20px;display: block;margin: auto;}
+        .team-titre{width: 200px;margin: auto;display: block;color: #291c6c;font-weight: bold;font-family: 'Georgia', serif;}
+        .founder{ width: 50px; max-width: 200px;  margin-right: 20px; height: auto; object-fit: cover; }
+        .event-image{width: 100%;  max-width: 200px;          height: auto;             margin-bottom: 15px;        }
+        .departments {display: flex;justify-content: center; gap: 50px; margin-top: 40px; }
+        .department {width: 220px;height: 200px;border-radius: 50%; background-color: #fbfdff; display: flex;flex-direction: column;align-items: center; justify-content: center; color: white; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;}
+        .department:hover {transform: scale(1.1);}
+        .department-title {font-size: 16px; margin-bottom: 5px; color: #000000;}
+        .department-number {font-size: 20px;  color: #271a78; }
+
+          </style>
+</head>
+<body>
+    
+    
+        <h1 >Bienvenue dans la famille InfoLab</h1>
+    
+        <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link  rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true"   onclick="window.location.href='acceuil.php'">Acceuil</button>
+            </li>
+    
+            
+
+            <li class="nav-item" role="presentation">
+                <div class="dropdown">
+                    <button class="nav-link active rounded-5" id="details-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='clubs.html'" >Listes Des Clubs</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="infolab.html">Infolab</a></li>
+                        <li><a class="dropdown-item" href="fahmolougia.html">Fahmolougia</a></li>
+                        <li><a class="dropdown-item" href="enactus.html">Enactus</a></li>
+    
+                    </ul>
+                </div>
+            </li>
+    
+            
+            <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5 " id="demande-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"  onclick="window.location.href='demandeadhesion.php'" >Demande D'adhésion</button> 
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5 " id="connexion-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='login.php'"  >Se Connecter</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='register.php'" >S'inscrire</button>
+                </li>  
+        </ul>
+
+    <main class="container my-5">
+        <section class="row g-4">
+            
+            <div class="col-md-3">
+                <img src="../uploads/infolab1.jpg" alt="Photo 1" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3">
+                <img src="../uploads/infolab2.jpg" alt="Photo 2" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3">
+                <img src="../uploads/infolab3.jpg" alt="Photo 3" class="img-fluid rounded">
+            </div>
+            <div class="col-md-3">
+                <img src="../uploads/infolab4.jpg" alt="Photo 4" class="img-fluid rounded">
+            </div>
+        </section>
+
+        <div class="content-container">
+            <section>
+                <div class="main-container">
+                <img  class=founder src="../uploads/afef.png" alt="">
+                    <div class="section">
+                        <p>
+                            Le Club Infolab de l’ESSECT a été créé en mai 2022 par Mme Afef Slama. Depuis sa création, il a évolué pour devenir un espace incontournable pour les étudiants passionnés par l’informatique et l’innovation technologique. Il vise à offrir aux étudiants un cadre d’apprentissage pratique et collaboratif pour développer leurs compétences et améliorer leurs ‘soft skills’. <br>Non seulement ca mais aussi Promouvoir l’enrichissement culturel et éducatif des jeunes sur tous les plans : C’est-à-dire contribuer à l’amélioration de l’éducation et de ses conditions, développer l’ouverture d’esprit, tisser des liens entre les jeunes, les intégrer dans la vie sociale, les sortir de leur zone de confort, explorer et développer leurs compétences. 
+                        </p>
+                    </div>
+                    <div class="section">
+                        <p>
+                            La réussite du Club Infolab est le fruit du travail acharné et de la passion d'une équipe dévouée. Chaque membre contribue à créer un environnement dynamique et inspirant pour tous les étudiants.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+            <section class="executive-team">
+                
+                <h1 class="title text-center">Notre équipe dirigente</h1>
+                <div class="member-group">
+                    <div class="member">
+                        <img src="../uploads/nour.jpg" alt="Photo de Membre 1">
+                        <h3>Nour Cherni</h3>
+                        <p>Présidente</p>
+                    </div>
+                    <div class="member">
+                        <img src="../uploads/saif.jpg" alt="Photo de Membre 2">
+                        <h3>Saif Bouali</h3>
+                        <p>Vice President</p>
+                    </div>
+                </div>
+                
+    
+              
+                <div class="member-group">
+                    <div class="member">
+                        <img src="../uploads/robbena.jpg" alt="Photo de Membre 3">
+                        <h3>Amenallah Robbena</h3>
+                        <p>Responsable RH</p>
+                    </div>
+                    <div class="member">
+                        <img src="../uploads/dija.jpg" alt="Photo de Membre 4">
+                        <h3>Khadija Ben Majdoub</h3>
+                        <p>Trésorière</p>
+                    </div>
+                    <div class="member">
+                        <img src="../uploads/sta.jpg" alt="Photo de Membre 5">
+                        <h3>Yasmine Ben Sta</h3>
+                        <p>Secrétaire générale</p>
+                    </div>
+                </div>
+    
+                <div class="member-group">
+                    <div class="member">
+                        <img src="../uploads/maha (2).jpg" alt="Photo de Membre 6">
+                        <h3>Maha Nourdin</h3>
+                        <p>Chef département design</p>
+                    </div>
+                    <div class="member">
+                        <img src="../uploads/jha.jpg" alt="Photo de Membre 7">
+                        <h3>Wassim Jha</h3>
+                        <p>Chef département de communication et de réseaux sociaux</p>
+                    </div>
+                    <div class="member">
+                        <img src="../uploads/baccar.jpg" alt="Photo de Membre 8">
+                        <h3>Iheb Baccar</h3>
+                        <p>Chef département des événements</p>
+                    </div>
+                </div>
+            
+            </section>
+            <h1 class="title text-center">Nos départements</h1>
+            <div class="departments">
+                <div class="department">
+                    <div class="department-title">Département Design</div>
+                    <div class="department-number">37 membres</div>
+                </div>
+                <div class="department">
+                    <div class="department-title">Département Communication</div>
+                    <div class="department-number">40 membres</div>
+                </div>
+                <div class="department">
+                    <div class="department-title">Département Événements</div>
+                    <div class="department-number">42 membres</div>
+                </div>
+            </div>
+            
+           
+            <br><br><br> <br><br>  
+
+            <h1 class="title text-center">Découvrir nos événements</h1>
+                <div class="container text-center">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <img src="../uploads/workshop.jpg"  class="event-image">
+                            <h5>Git & GitHub Workshop |  23 Novembre 2022 </h5>
+                            La session de formation est assurée par Wael El Ghozzi                  
+                        </div>
+                        <div class="col">
+                            <img src="../uploads/digitale.jpg"  class="event-image">
+                            <h5>Le marketing digital à l’ère de l’IA | 02 Décembre 2023 </h5>
+                            La conférence a été assurée par Raouia Ayechi, Nahla Ben Amor,
+                            Asma Hassouna et The Vmaker
+                        </div>
+                        <div class="col">
+                            <img src="../uploads/google.jpg"  class="event-image">
+                            <h5>Conférence sur les programmes offerts de Google | 28 fevrier 2024 </h5>
+                            La conférence a été assurée par Imen Masmoudi</div>
+                        </div>
+                        <div class="col">
+                            <img src="../uploads/linkedin.jpg"  class="event-image">
+                            <h5> Conférence LinkedIn| 13 Novembre 2024</h5>
+                            La conférence est assurée par Dr karima Tekaya et Mme Marwa Ben Othmen                  
+                        </div>
+                        <div class="col">
+                            <img src="../uploads/pfe.jpg"  class="event-image">
+                            <h5>Séssion Réussir mon PFE | 23 Novembre 2024</h5>
+                            La session de formation est assurée par plusieurs professeurs                  
+                        </div>
+                    </div>
+                </div>
+
+           
+        
+        <section id="about-us">
+            <div class="container">
+                <h1 class="title text-center">Pourquoi choisir InfoLab?</h1>
+                <div class="row">
+                    <div class="col-m-6 about us">
+                        
+                        <ul>
+                            <li>Développement des compétences techniques</li>
+                            <li>Environnement collaboratif</li>
+                            <li>Ambiance dynamique et inspirante </li>
+                            <li>Développement personnel</li>
+                            <li>Soutien et entraide </li>
+                            <li>Valorisation sur le CV et dans les candidatures</li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <footer id="social-media">
+            <div class="container text-center">
+                <p>  <br> <br> "Retrouvez-nous sur "</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/groups/714642757149944?locale=fr_FR"><img src="../uploads/facebookicon.png" ></a>
+                    <a href="https://www.instagram.com/infolab_essect/"><img src="../uploads/instagramicon.png" ></a>
+                    <a href="https://www.tiktok.com/@infolabessect"><img src="../uploads/tiktokicon.png" ></a>
+                </div>
+            </div>
+
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+

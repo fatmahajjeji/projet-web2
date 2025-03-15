@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Listes des clubs</title>
+    <style>
+        body{
+            background: linear-gradient(135deg, #f7faff, #c9dafd);
+        }
+        h1 {
+    font-style: italic;
+    color: #0D6EFD; 
+    transition: color 0.3s ease-in-out; /* Effet de transition lors du survol */
+    text-align: center;
+}
+
+h2:hover {
+    color: #00072f; /* Couleur bleu plus clair lors du survol */
+}
+h3 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.8rem;
+    color: rgb(26, 2, 114);
+    font-family: 'Playfair Display', 'Georgia', serif; 
+    font-weight: bold; 
+}
+
+.programmes-container {
+    display: flex;
+    justify-content: center;
+    gap: 90px; /*espace entre chaque licence */
+    background-color:  linear-gradient(135deg, #2353856e, #004085);
+}
+
+
+
+
+.programme-card {
+    border: 2px solid #eef2f6; /* cadre de chaque licence */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #8abff7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    width: 280px;
+    text-align: center;
+    position: relative; /* Ceci permet de positionner le logo par rapport à la carte */
+    background:white; /* Dégradé bleu moderne */
+    padding: 20px;
+    font-family: 'Playfair Display', 'Georgia', serif; /* Une police esthétique */
+}
+
+.programme-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px #e8ebef; /* reflet*/
+}
+.btn {
+    background: #0367d2;
+    color: white;
+    padding: 12px 24px; /* Taille du bouton plus grande pour un effet plus élégant */
+    border-radius: 25px; /* Bouton avec bords arrondis plus importants */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+section{
+    
+    margin: 20px 0; 
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(33, 12, 127, 0.588);}
+.programme-logo {
+    position: absolute; /* Positionner le logo en dehors du div */
+    top:-20px; /* Ajustez la distance du logo par rapport au top */
+    left: -9px; /* Ajustez la distance du logo par rapport à la gauche */
+    width: 100px; /* Ajustez la taille du logo */
+    height: 100px; /* Ajustez la taille du logo */
+    object-fit: contain; /* Assure que l'image garde son ratio */
+}
+
+
+
+p {
+    color: rgb(10, 0, 7); 
+    font-family: 'Playfair Display', 'Georgia', serif; 
+    font-size: 1.2em; 
+}
+.dropdown-menu {
+    display: none; 
+    position: absolute; 
+    background-color: white;
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    z-index: 1000;
+}
+.dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+    </style>
+</head>
+<body>
+     <h1 class="pulse-animation"><strong>Nos clubs</strong></h1> 
+     <p style="text-align: center ;color: #0D6EFD ;">En rejoignant un club, vous participez à la construction d'une communauté dynamique et solidaire, où chacun peut contribuer à un projet commun.".</p>
+     <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" onclick="window.location.href='acceuil.php'">Acceuil</button>
+        </li>
+    
+        <li class="nav-item" role="presentation">
+            <div class="dropdown">
+                <button class="nav-link active rounded-5" id="details-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='clubs.html'" >Liste Des Clubs</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="infolab.html">Infolab</a></li>
+                    <li><a class="dropdown-item" href="fahmolougia.html">Fahmolougia</a></li>
+                    <li><a class="dropdown-item" href="enactus.html">Enactus</a></li>
+
+                </ul>
+            </div>
+        </li>
+    
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5" id="demande-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"  onclick="window.location.href='demandeadhesion.php'">Demande D'adhésion</button>
+        </li>
+    
+        <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-5" id="connexion-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='login.php'">Se Connecter</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" onclick="window.location.href='register.php'" >S'inscrire</button>
+            </li>  
+    </ul>
+    <section>
+
+
+        <br><br>
+        
+        <div class="programmes-container">
+            <div class="programme-card" id="economie">
+                <div class="programme-content">
+                    <img src="../uploads/logoinfolab.png" alt="Logo" class="programme-logo" > 
+                    <h3><br>InfoLab</h3>
+                    <p>un club étudiant dédié à la technologie et à l'informatique. Il réunit des étudiants passionnés, offrant des opportunités d'apprentissage, de collaboration et de réseautage</p>
+                    <button class="btn" onclick="window.location.href='infolab.html'">Plus de détails</button>
+                </div>
+            </div>
+            <div class="programme-card" id="gestion">
+                <div class="programme-content">
+                    <img src="../uploads/logoenactus.png" alt="Logo" class="programme-logo"  style="width: 200px; height: 200px;  top:-70px">
+                    <h3><br>Enactus</h3>
+                    <p> une organisation à but non lucratif qui réalise des projets d'entrepreneuriat social en Tunisie, axés sur l'économie, l'environnement et les enjeux sociaux.</p>
+                    <button class="btn" onclick="window.location.href='enactus.html'" >Plus de détails</button>
+                </div>
+            </div>
+            <div class="programme-card" id="informatique-gestion">
+                <div class="programme-content">
+                    <img src="../uploads/fahmoulougia.png" alt="Logo" class="programme-logo"> <!-- Ajoutez l'image ici -->
+                    <h3><br>Fahmoulougia</h3>
+                    <p> un club visant à clarifier certains concepts ou à offrir des explications détaillées sur un sujet lié aux études ou à l'expérience universitaire .</p>
+                    <button class="btn"onclick="window.location.href='fahmolougia.html';" >Plus de détails</button>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="Copyright">
+        <p style="font-family:Arial, Helvetica, sans-serif; text-align: center;">© Copyright 2025 ESSECT</p>
+    </div>
+    
+</body>
+</html>
